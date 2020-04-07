@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e8998d7e-ba2e-4bec-836e-b0d6f8138494" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\Downloads\mvn-rep" />
+        <option name="mavenHome" value="D:/apache-maven-3.3.3" />
+        <option name="userSettingsFile" value="D:\apache-maven-3.3.3\conf\setting.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="jdkForImporter" value="1.8" />
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1Yql6XUd3P620phuXvetHf7YayP" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="JavaClassFindUsagesOptions.isSearchForTextOccurrences" value="false" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../flash-netty" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.dabin.echo" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.NettyServer">
+    <configuration name="Demo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.dabin.echo.Demo" />
+      <module name="netty" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dabin.echo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EchoClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.dabin.echo.EchoClient" />
+      <module name="netty" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dabin.echo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EchoServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.dabin.echo.EchoServer" />
+      <module name="netty" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dabin.echo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NettyClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.dabin.netty.client.NettyClient" />
+      <module name="netty" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dabin.netty.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NettyServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.dabin.netty.server.NettyServer" />
+      <module name="netty" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dabin.netty.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.NettyClient" />
+        <item itemvalue="Application.NettyServer" />
+        <item itemvalue="Application.EchoClient" />
+        <item itemvalue="Application.EchoServer" />
+        <item itemvalue="Application.Demo" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",SHOW_NON_PUBLIC,SHOW_FIELDS,SHOW_INHERITED" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e8998d7e-ba2e-4bec-836e-b0d6f8138494" name="Default Changelist" comment="" />
+      <created>1583677830447</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583677830447</updated>
+      <workItem from="1583677833260" duration="534000" />
+      <workItem from="1583679481592" duration="1212000" />
+      <workItem from="1583680719497" duration="5931000" />
+      <workItem from="1583719671970" duration="35000" />
+      <workItem from="1583769384425" duration="3828000" />
+      <workItem from="1583830166487" duration="7877000" />
+      <workItem from="1583925674226" duration="1456000" />
+      <workItem from="1585375473838" duration="10728000" />
+      <workItem from="1585450698909" duration="3371000" />
+      <workItem from="1585572871190" duration="3442000" />
+      <workItem from="1585616373954" duration="11000" />
+      <workItem from="1585802153353" duration="1350000" />
+      <workItem from="1585978218350" duration="10699000" />
+      <workItem from="1586078499247" duration="156000" />
+      <workItem from="1586095694771" duration="16208000" />
+      <workItem from="1586219850152" duration="3400000" />
+      <workItem from="1586232828134" duration="4708000" />
+      <workItem from="1586263404198" duration="1188000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="451" y="96" key="#Project_Structure" timestamp="1586190122002">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="361" y="76" key="#Project_Structure/0.0.1536.834@0.0.1536.834" timestamp="1583685641093" />
+    <state x="451" y="96" key="#Project_Structure/0.0.1920.1050@0.0.1920.1050" timestamp="1586190122002" />
+    <state x="414" y="180" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586224285277">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="414" y="180" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1586224285277" />
+    <state x="718" y="167" key="#com.intellij.ide.util.MemberChooser" timestamp="1586188569127">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="574" y="133" key="#com.intellij.ide.util.MemberChooser/0.0.1536.834@0.0.1536.834" timestamp="1583685668084" />
+    <state x="718" y="167" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1586188569127" />
+    <state x="690" y="271" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586234698136">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="690" y="271" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1586234698136" />
+    <state x="93" y="93" width="1350" height="648" key="DiffContextDialog" timestamp="1583832335653">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="93" y="93" width="1350" height="648" key="DiffContextDialog/0.0.1536.834@0.0.1536.834" timestamp="1583832335653" />
+    <state x="686" y="217" key="FileChooserDialogImpl" timestamp="1586234430148">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834/1920.0.1920.1050@0.0.1536.834" timestamp="1583719707094" />
+    <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1583974337280" />
+    <state x="686" y="217" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1586234430148" />
+    <state width="1877" height="175" key="GridCell.Tab.0.bottom" timestamp="1586190685593">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1493" height="70" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1583854461359" />
+    <state width="1877" height="175" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1586190685593" />
+    <state width="1877" height="175" key="GridCell.Tab.0.center" timestamp="1586190685593">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1493" height="70" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1583854461358" />
+    <state width="1877" height="175" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1586190685593" />
+    <state width="1877" height="175" key="GridCell.Tab.0.left" timestamp="1586190685592">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1493" height="70" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1583854461358" />
+    <state width="1877" height="175" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1586190685592" />
+    <state width="1877" height="175" key="GridCell.Tab.0.right" timestamp="1586190685593">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1493" height="70" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1583854461358" />
+    <state width="1877" height="175" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1586190685593" />
+    <state width="1493" height="265" key="GridCell.Tab.1.bottom" timestamp="1583770257867">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="265" key="GridCell.Tab.1.bottom/0.0.1536.834@0.0.1536.834" timestamp="1583770257867" />
+    <state width="1493" height="265" key="GridCell.Tab.1.center" timestamp="1583770257866">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="265" key="GridCell.Tab.1.center/0.0.1536.834@0.0.1536.834" timestamp="1583770257866" />
+    <state width="1493" height="265" key="GridCell.Tab.1.left" timestamp="1583770257866">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="265" key="GridCell.Tab.1.left/0.0.1536.834@0.0.1536.834" timestamp="1583770257866" />
+    <state width="1493" height="265" key="GridCell.Tab.1.right" timestamp="1583770257866">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="265" key="GridCell.Tab.1.right/0.0.1536.834@0.0.1536.834" timestamp="1583770257866" />
+    <state x="299" y="72" key="Maven.ArtifactSearchDialog" timestamp="1583681724828">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="299" y="72" key="Maven.ArtifactSearchDialog/0.0.1536.834@0.0.1536.834" timestamp="1583681724828" />
+    <state x="291" y="118" key="SettingsEditor" timestamp="1586185103123">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="233" y="94" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1583684442507" />
+    <state x="291" y="118" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1586185103123" />
+    <state x="864" y="189" width="679" height="660" key="StructurePopup" timestamp="1585495715165">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="490" y="159" width="543" height="524" key="StructurePopup/0.0.1536.834@0.0.1536.834" timestamp="1583849309538" />
+    <state x="864" y="189" width="679" height="660" key="StructurePopup/0.0.1920.1050@0.0.1920.1050" timestamp="1585495715165" />
+    <state x="941" y="230" width="647" height="534" key="find.popup" timestamp="1585380071741">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="941" y="230" width="647" height="534" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1585380071741" />
+    <state x="178" y="112" key="new project wizard" timestamp="1583681771784">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="178" y="112" key="new project wizard/0.0.1536.834@0.0.1536.834" timestamp="1583681771784" />
+    <state x="410" y="144" width="700" height="530" key="recent.locations.popup" timestamp="1583682293119">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="410" y="144" width="700" height="530" key="recent.locations.popup/0.0.1536.834@0.0.1536.834" timestamp="1583682293119" />
+    <state x="539" y="195" width="840" height="854" key="search.everywhere.popup" timestamp="1586189227894">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1583769584754" />
+    <state x="539" y="195" width="840" height="854" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1586189227894" />
+  </component>
+</project>
