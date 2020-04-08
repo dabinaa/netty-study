@@ -1,5 +1,6 @@
 package com.dabin.netty.command;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
 /**
@@ -12,12 +13,15 @@ public abstract class Packet {
     /**
      * 协议版本
      */
+    @JSONField(deserialize = false, serialize = false)
     private Byte version = 1;
 
 
     /**
      * 获取指令的方法
+     *
      * @return
      */
+    @JSONField(serialize = false)
     public abstract Byte getCommand();
 }

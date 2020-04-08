@@ -1,8 +1,9 @@
 package com.dabin.netty.server;
 
-import com.dabin.netty.command.LoginRequestPacket;
+import com.dabin.netty.request.LoginRequestPacket;
 import com.dabin.netty.command.Packet;
 import com.dabin.netty.command.PacketCodeC;
+import com.dabin.netty.response.LoginResponsePacket;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
@@ -20,24 +21,47 @@ public class FirstServerHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         ByteBuf byteBuf = (ByteBuf) msg;
-        Packet packet = PacketCodeC.INSTANCE.encode(byteBuf);
+        //解码
+        Packet packet = PacketCodeC.INSTANCE.decode(byteBuf);
 
+        //判斷是不是登录的请求数据包
         if (packet instanceof LoginRequestPacket) {
             LoginRequestPacket loginRequestPacket = (LoginRequestPacket) packet;
 
-            if (loginRequestPacket.isSuccess()) {
-                System.out.println(new Date() + "：客户端等人成功");
+
+            LoginResponsePacket loginResponsePacket = new LoginResponsePacket();
+            loginResponsePacket.setVersion(packet.getVersion());
+            if (valid(loginRequestPacket)) {
+                loginResponsePacket.setSuccess(true);
             } else {
-                System.out.println(new Date() + ":登入失敗，原因是:" + loginRequestPacket.getReason());
+                loginResponsePacket.setReason("密码账号错误！");
+                loginResponsePacket.setSuccess(false);
+                System.out.println(new Date() + ":登录失败！");
             }
+
+            //登录响应
+            ByteBuf responseByteBuf = PacketCodeC.INSTANCE.encode(ctx.alloc(), loginResponsePacket);
+            ctx.channel().writeAndFlush(responseByteBuf);
+
+            //登录校验
+//            if (loginRequestPacket.isSuccess()) {
+//                System.out.println(new Date() + "：客户端等人成功");
+//            } else {
+//                System.out.println(new Date() + ":登入失敗，原因是:" + loginRequestPacket.getReason());
+//            }
         }
 
 
-        String result = byteBuf.toString(Charset.forName("utf-8"));
-        System.out.println(new Date() + "服务端读取到的数据为：" + result);
-        //返回数据给客户端
-        ByteBuf out = getByteBuf(ctx);
-        ctx.channel().writeAndFlush(out);
+//        String result = byteBuf.toString(Charset.forName("utf-8"));
+//        System.out.println(new Date() + "服务端读取到的数据为：" + result);
+//        //返回数据给客户端
+//        ByteBuf out = getByteBuf(ctx);
+//        ctx.channel().writeAndFlush(out);
+    }
+
+
+    private boolean valid(LoginRequestPacket loginRequestPacket) {
+        return true;
     }
 
 

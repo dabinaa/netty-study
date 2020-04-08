@@ -3,7 +3,7 @@ package com.dabin.netty.Serialize.Impl;
 
 import com.alibaba.fastjson.JSON;
 import com.dabin.netty.Serialize.Serializer;
-import com.dabin.netty.Serialize.SerializerAlgorithm;
+import com.dabin.netty.Serialize.SerializerAlogrithm;
 
 /**
  * @ClassName:JSONSerializer
@@ -11,15 +11,21 @@ import com.dabin.netty.Serialize.SerializerAlgorithm;
  * @date: 2020/4/623:12
  */
 public class JSONSerializer implements Serializer {
-    public byte getSerializerAlgorithm() {
-        return SerializerAlgorithm.JSON;
+
+    @Override
+    public byte getSerializerAlogrithm() {
+        return SerializerAlogrithm.JSON;
     }
 
+    @Override
     public byte[] serialize(Object object) {
+
         return JSON.toJSONBytes(object);
     }
 
-    public <T> T deserialize(Class<T> tClass, byte[] bytes) {
-        return JSON.parseObject(bytes, tClass);
+    @Override
+    public <T> T deserialize(Class<T> clazz, byte[] bytes) {
+
+        return JSON.parseObject(bytes, clazz);
     }
 }

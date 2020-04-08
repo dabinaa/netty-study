@@ -1,8 +1,9 @@
 package com.dabin.netty.command;
 
 import com.alibaba.fastjson.serializer.JSONSerializer;
-
 import com.dabin.netty.Serialize.Serializer;
+import com.dabin.netty.request.LoginRequestPacket;
+import com.dabin.netty.response.LoginResponsePacket;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufAllocator;
 
@@ -10,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static com.dabin.netty.command.Command.LOGIN_REQUEST;
+import static com.dabin.netty.command.Command.LOGIN_RESPONSE;
 
 /**
  * @ClassName:PacketCodeC
@@ -18,35 +20,36 @@ import static com.dabin.netty.command.Command.LOGIN_REQUEST;
  */
 public class PacketCodeC {
 
-    private static final int MAGIC_NUMBER = 0X12345678;
+    private static final int MAGIC_NUMBER = 0x12345678;
     public static final PacketCodeC INSTANCE = new PacketCodeC();
 
-    private static final Map<Byte, Class<? extends Packet>> packetTypeMap;
-    private static final Map<Byte, Serializer> serializerMap;
+    private final Map<Byte, Class<? extends Packet>> packetTypeMap;
+    private final Map<Byte, Serializer> serializerMap;
 
-    static {
+
+    private PacketCodeC() {
         packetTypeMap = new HashMap<>();
         packetTypeMap.put(LOGIN_REQUEST, LoginRequestPacket.class);
+        packetTypeMap.put(LOGIN_RESPONSE, LoginResponsePacket.class);
 
         serializerMap = new HashMap<>();
-        Serializer serializer = (Serializer) new JSONSerializer();
-        serializerMap.put(serializer.getSerializerAlgorithm(), serializer);
+        Serializer serializer = Serializer.DEFAULT;
+        serializerMap.put(serializer.getSerializerAlogrithm(), serializer);
     }
 
-    public ByteBuf encode(ByteBufAllocator byteBufAllocator, Packet packet) {
 
-        //创建byteBuf对象
-        ByteBuf byteBuf = byteBufAllocator.DEFAULT.ioBuffer();
-        //序列化byteBuf对象
+    public ByteBuf encode(ByteBufAllocator byteBufAllocator, Packet packet) {
+        // 1. 创建 ByteBuf 对象
+        ByteBuf byteBuf = byteBufAllocator.ioBuffer();
+        // 2. 序列化 java 对象
         byte[] bytes = Serializer.DEFAULT.serialize(packet);
 
-        //实际编码过程
-
+        // 3. 实际编码过程
         byteBuf.writeInt(MAGIC_NUMBER);
         byteBuf.writeByte(packet.getVersion());
-        byteBuf.writeByte(Serializer.DEFAULT.getSerializerAlgorithm());
+        byteBuf.writeByte(Serializer.DEFAULT.getSerializerAlogrithm());
         byteBuf.writeByte(packet.getCommand());
-        byteBuf.writeByte(bytes.length);
+        byteBuf.writeInt(bytes.length);
         byteBuf.writeBytes(bytes);
 
         return byteBuf;
@@ -54,34 +57,33 @@ public class PacketCodeC {
 
 
     public Packet decode(ByteBuf byteBuf) {
-
-        //跳过 magic number
+        // 跳过 magic number
         byteBuf.skipBytes(4);
-        //跳过版本号
+
+        // 跳过版本号
         byteBuf.skipBytes(1);
-        //序列化算法表示
+
+        // 序列化算法
         byte serializeAlgorithm = byteBuf.readByte();
 
-        //指令
+        // 指令
         byte command = byteBuf.readByte();
 
-        //获取数据包长度
+        // 数据包长度
         int length = byteBuf.readInt();
-
 
         byte[] bytes = new byte[length];
         byteBuf.readBytes(bytes);
 
-        Class<? extends Packet> requsetType = getRequestType(command);
+        Class<? extends Packet> requestType = getRequestType(command);
         Serializer serializer = getSerializer(serializeAlgorithm);
 
-        if (requsetType != null && serializer != null) {
-            return serializer.deserialize(requsetType, bytes);
+        if (requestType != null && serializer != null) {
+            return serializer.deserialize(requestType, bytes);
         }
+
         return null;
-
     }
-
 
     private Serializer getSerializer(byte serializeAlgorithm) {
 

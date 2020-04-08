@@ -1,14 +1,15 @@
 package com.dabin.netty.client;
 
-import com.dabin.netty.command.LoginRequestPacket;
+import com.dabin.netty.command.Packet;
 import com.dabin.netty.command.PacketCodeC;
+import com.dabin.netty.request.LoginRequestPacket;
+import com.dabin.netty.response.LoginResponsePacket;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
 import java.nio.charset.Charset;
 import java.util.Date;
-import java.util.UUID;
 
 
 /**
@@ -20,16 +21,15 @@ public class FirstClientHandler extends ChannelInboundHandlerAdapter {
 
     //客户端创建连接成功后调用
     @Override
-    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+    public void channelActive(ChannelHandlerContext ctx) {
         System.out.println(new Date() + "：客戶端开始登陆！");
 
         LoginRequestPacket loginRequestPacket = new LoginRequestPacket();
-        loginRequestPacket.setUserId(Integer.valueOf(UUID.randomUUID().toString()));
+        loginRequestPacket.setUserId(123);
         loginRequestPacket.setUsername("dabin");
         loginRequestPacket.setPassWord("dabin");
 
-        PacketCodeC packetCodeC = new PacketCodeC();
-        ByteBuf byteBuf = packetCodeC.encode(ctx.alloc(), loginRequestPacket);
+        ByteBuf byteBuf = PacketCodeC.INSTANCE.encode(ctx.alloc(), loginRequestPacket);
 
         //写数据
         ctx.channel().writeAndFlush(byteBuf);
@@ -53,7 +53,17 @@ public class FirstClientHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         ByteBuf byteBuf = (ByteBuf) msg;
-        String result = byteBuf.toString(Charset.forName("utf-8"));
-        System.out.println(new Date() + "：服务器返回：" + result);
+
+        Packet packet = PacketCodeC.INSTANCE.decode(byteBuf);
+        if (packet instanceof LoginResponsePacket) {
+            LoginResponsePacket loginResponsePacket = (LoginResponsePacket) packet;
+            if (loginResponsePacket.isSuccess()) {
+                System.out.println(new Date() + ":客户端登录成功");
+            } else {
+                System.out.println(new Date() + "客戶端登錄失败，原因是：" + loginResponsePacket.getReason());
+            }
+//            String result = byteBuf.toString(Charset.forName("utf-8"));
+//            System.out.println(new Date() + "：服务器返回：" + result);
+        }
     }
 }

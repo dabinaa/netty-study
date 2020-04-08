@@ -11,7 +11,6 @@ import com.dabin.netty.Serialize.Impl.JSONSerializer;
  */
 public interface Serializer {
 
-
     Serializer DEFAULT = new JSONSerializer();
 
 
@@ -20,7 +19,7 @@ public interface Serializer {
      *
      * @return
      */
-    byte getSerializerAlgorithm();
+    byte getSerializerAlogrithm();
 
 
     /**

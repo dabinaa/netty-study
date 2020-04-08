@@ -1,5 +1,6 @@
-package com.dabin.netty.command;
+package com.dabin.netty.request;
 
+import com.dabin.netty.command.Packet;
 import lombok.Data;
 
 import static com.dabin.netty.command.Command.LOGIN_REQUEST;

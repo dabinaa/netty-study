@@ -53,25 +53,19 @@ public class NettyClient {
 
     //异步操作
     private static void connect(Bootstrap bootstrap, String host, int port, int tetry) {
-        //建立连接
-        ChannelFuture channelFuture = bootstrap.connect(host, port).addListener(new GenericFutureListener<Future<? super Void>>() {
-            public void operationComplete(Future<? super Void> future) {
-                if (future.isSuccess()) {
-                    System.out.println("连接成功");
-                } else if (tetry == 0) {
-                    System.out.println("重连次数已用尽，放弃连接");
-                    //尝试错误重连,错误就不断的递归调用自己
-//                    connect(bootstrap, host, port);
-                    //使用定时任务去调用对应的方法
-                } else {
-                    //这里就是去尝试去不断的重连
-                    int order = (MAX_RETRY - tetry) + 1;
-                    int delay = order << 1;
-                    System.out.println(new Date() + ":连接失败，第" + order + "次重连....");
-                    //这里实现定时任务的逻辑
-                    bootstrap.config().group().schedule(() -> connect(bootstrap, host, port, tetry - 1), delay, TimeUnit
-                            .SECONDS);
-                }
+        bootstrap.connect(host, port).addListener(future -> {
+            if (future.isSuccess()) {
+                System.out.println(new Date() + ": 连接成功!");
+            } else if (tetry == 0) {
+                System.err.println("重试次数已用完，放弃连接！");
+            } else {
+                // 第几次重连
+                int order = (MAX_RETRY - tetry) + 1;
+                // 本次重连的间隔
+                int delay = 1 << order;
+                System.err.println(new Date() + ": 连接失败，第" + order + "次重连……");
+                bootstrap.config().group().schedule(() -> connect(bootstrap, host, port, tetry - 1), delay, TimeUnit
+                        .SECONDS);
             }
         });
     }
