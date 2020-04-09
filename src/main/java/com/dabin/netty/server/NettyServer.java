@@ -10,6 +10,8 @@ import io.netty.util.AttributeKey;
 import io.netty.util.concurrent.Future;
 import io.netty.util.concurrent.GenericFutureListener;
 
+import java.util.Date;
+
 /**
  * @ClassName:NettyServer
  * @author: dabin
@@ -47,7 +49,7 @@ public class NettyServer {
                 .childHandler(new ChannelInitializer<NioSocketChannel>() {
                     protected void initChannel(NioSocketChannel ch) {
                         System.out.println("服务端启动中！");
-                        System.out.println(ch.attr(clientKey));
+//                        System.out.println(ch.attr(clientKey));
                         //接收到客户端发来的数据之后被回调。
                         ch.pipeline().addLast(new FirstServerHandler());
                     }
@@ -59,7 +61,7 @@ public class NettyServer {
         serverBootstrap.bind(port).addListener(new GenericFutureListener<Future<? super Void>>() {
             public void operationComplete(Future<? super Void> future) {
                 if (future.isSuccess()) {
-                    System.out.println("端口[" + port + "]绑定成功!");
+                    System.out.println(new Date() + "端口[" + port + "]绑定成功!");
                 } else {
                     System.err.println("端口[" + port + "]绑定失败!");
                     bind(serverBootstrap, port + 1);

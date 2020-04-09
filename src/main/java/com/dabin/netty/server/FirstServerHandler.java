@@ -3,7 +3,9 @@ package com.dabin.netty.server;
 import com.dabin.netty.request.LoginRequestPacket;
 import com.dabin.netty.command.Packet;
 import com.dabin.netty.command.PacketCodeC;
+import com.dabin.netty.request.MessageRequestPacket;
 import com.dabin.netty.response.LoginResponsePacket;
+import com.dabin.netty.response.MessageResponsePacket;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
@@ -34,7 +36,7 @@ public class FirstServerHandler extends ChannelInboundHandlerAdapter {
             loginResponsePacket.setVersion(packet.getVersion());
             if (valid(loginRequestPacket)) {
                 loginResponsePacket.setSuccess(true);
-                System.out.println(new Date()+":客戶端登录成功");
+                System.out.println(new Date() + ":客戶端登录成功");
             } else {
                 loginResponsePacket.setReason("密码账号错误！");
                 loginResponsePacket.setSuccess(false);
@@ -51,6 +53,16 @@ public class FirstServerHandler extends ChannelInboundHandlerAdapter {
 //            } else {
 //                System.out.println(new Date() + ":登入失敗，原因是:" + loginRequestPacket.getReason());
 //            }
+        } else if (packet instanceof MessageRequestPacket) {
+
+            //处理消息
+            MessageRequestPacket messageRequestPacket = (MessageRequestPacket) packet;
+            System.out.println(new Date() + "：收到客户端消息：" + messageRequestPacket.getMsg());
+
+            MessageResponsePacket messageResponsePacket = new MessageResponsePacket();
+            messageResponsePacket.setMsg("服务端回复：" + messageRequestPacket.getMsg());
+            ByteBuf responseByteBuf = PacketCodeC.INSTANCE.encode(ctx.alloc(), messageResponsePacket);
+            ctx.channel().writeAndFlush(responseByteBuf);
         }
 
 
