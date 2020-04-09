@@ -20,6 +20,7 @@ public class FirstServerHandler extends ChannelInboundHandlerAdapter {
     //接收到客户端发来的数据之后被回调。
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+        System.out.println(new Date() + ":客户端开始登录");
         ByteBuf byteBuf = (ByteBuf) msg;
         //解码
         Packet packet = PacketCodeC.INSTANCE.decode(byteBuf);
@@ -33,6 +34,7 @@ public class FirstServerHandler extends ChannelInboundHandlerAdapter {
             loginResponsePacket.setVersion(packet.getVersion());
             if (valid(loginRequestPacket)) {
                 loginResponsePacket.setSuccess(true);
+                System.out.println(new Date()+":客戶端登录成功");
             } else {
                 loginResponsePacket.setReason("密码账号错误！");
                 loginResponsePacket.setSuccess(false);
