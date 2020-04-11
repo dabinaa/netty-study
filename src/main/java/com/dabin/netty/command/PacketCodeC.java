@@ -3,15 +3,16 @@ package com.dabin.netty.command;
 import com.alibaba.fastjson.serializer.JSONSerializer;
 import com.dabin.netty.Serialize.Serializer;
 import com.dabin.netty.request.LoginRequestPacket;
+import com.dabin.netty.request.MessageRequestPacket;
 import com.dabin.netty.response.LoginResponsePacket;
+import com.dabin.netty.response.MessageResponsePacket;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufAllocator;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.dabin.netty.command.Command.LOGIN_REQUEST;
-import static com.dabin.netty.command.Command.LOGIN_RESPONSE;
+import static com.dabin.netty.command.Command.*;
 
 /**
  * @ClassName:PacketCodeC
@@ -31,6 +32,8 @@ public class PacketCodeC {
         packetTypeMap = new HashMap<>();
         packetTypeMap.put(LOGIN_REQUEST, LoginRequestPacket.class);
         packetTypeMap.put(LOGIN_RESPONSE, LoginResponsePacket.class);
+        packetTypeMap.put(MESSAGE_REQUEST, MessageRequestPacket.class);
+        packetTypeMap.put(MESSAGE_RESPONSE, MessageResponsePacket.class);
 
         serializerMap = new HashMap<>();
         Serializer serializer = Serializer.DEFAULT;

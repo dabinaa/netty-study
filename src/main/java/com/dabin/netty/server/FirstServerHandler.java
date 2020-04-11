@@ -27,6 +27,8 @@ public class FirstServerHandler extends ChannelInboundHandlerAdapter {
         //解码
         Packet packet = PacketCodeC.INSTANCE.decode(byteBuf);
 
+        System.out.println(packet instanceof MessageRequestPacket);
+        System.out.println(packet instanceof MessageResponsePacket);
         //判斷是不是登录的请求数据包
         if (packet instanceof LoginRequestPacket) {
             LoginRequestPacket loginRequestPacket = (LoginRequestPacket) packet;
