@@ -1,5 +1,6 @@
 package com.dabin.netty.server;
 
+import com.dabin.netty.InboundHandler.*;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
@@ -51,7 +52,16 @@ public class NettyServer {
                         System.out.println("服务端启动中！");
 //                        System.out.println(ch.attr(clientKey));
                         //接收到客户端发来的数据之后被回调。
-                        ch.pipeline().addLast(new FirstServerHandler());
+//                        ch.pipeline().addLast(new FirstServerHandler());
+                        ch.pipeline().addLast(new InboundHandlerA());
+                        ch.pipeline().addLast(new InboundHandlerB());
+                        ch.pipeline().addLast(new InboundHandlerC());
+
+
+                        ch.pipeline().addLast(new OutBoundHandlerA());
+                        ch.pipeline().addLast(new OutBoundHandlerB());
+                        ch.pipeline().addLast(new OutBoundHandlerC());
+
                     }
                 });
         bind(serverBootstrap, POST);

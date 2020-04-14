@@ -9,7 +9,22 @@ import java.util.HashMap;
  */
 public class mapdemo {
     public static void main(String[] args) {
-        HashMap map = new HashMap(14);
-        map.put("dabin", 123);
+
+//        HashMap map = new HashMap(14);
+//        map.put("dabin", 123);
+        Thread thread = new Thread(new Runnable() {
+            public void run() {
+                nvpengyou();
+            }
+
+        });
+
+        for (; ; ) {
+            thread.start();
+        }
+    }
+
+    public static void nvpengyou() {
+        new GiflFriend();
     }
 }
